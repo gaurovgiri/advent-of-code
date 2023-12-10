@@ -14,7 +14,6 @@ for game in games:
     gid = game.split(":")[0]
     subgames = game.split(":")[1].replace(" ","").split(";")
     red = blue = green = 0
-    valid = True
     for cubes in subgames:
         for cube in cubes.split(","):
             if "red" in cube:
@@ -27,6 +26,6 @@ for game in games:
                 curr_green = int(cube.split("green")[0])
                 green = curr_green if curr_green > green else green
     if red <= 12 and green <= 13 and blue <= 14:
-        sum += int(gid) if valid else 0
+        sum += int(gid)
 
 print(sum)
